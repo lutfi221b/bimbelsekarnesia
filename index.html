@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bimbel Sekarnesia Edu - Bimbingan Belajar Terbaik di Cilacap</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/poppins@5.0.0/index.css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Poppins', 'sans-serif'],
+        },
+        colors: {
+          primary: '#1e3a5f',
+          secondary: '#d4a843',
+          accent: '#2563eb',
+        },
+        animation: {
+          'fade-in': 'fadeIn 0.8s ease-out forwards',
+          'slide-up': 'slideUp 0.8s ease-out forwards',
+          'float': 'float 3s ease-in-out infinite',
+        },
+        keyframes: {
+          fadeIn: {
+            '0%': { opacity: '0' },
+            '100%': { opacity: '1' },
+          },
+          slideUp: {
+            '0%': { opacity: '0', transform: 'translateY(30px)' },
+            '100%': { opacity: '1', transform: 'translateY(0)' },
+          },
+          float: {
+            '0%, 100%': { transform: 'translateY(0)' },
+            '50%': { transform: 'translateY(-10px)' },
+          }
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Poppins', sans-serif; }
+  .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+  .reveal.active { opacity: 1; transform: translateY(0); }
+  .hero-gradient {
+    background: linear-gradient(135deg, rgba(30,58,95,0.92) 0%, rgba(37,99,235,0.85) 100%);
+  }
+  .gold-gradient {
+    background: linear-gradient(135deg, #d4a843 0%, #f4d06f 100%);
+  }
+  .card-hover { transition: all 0.3s ease; }
+  .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: ''; position: absolute; bottom: -4px; left: 0;
+    width: 0; height: 2px; background: #d4a843; transition: width 0.3s;
+  }
+  .nav-link:hover::after { width: 100%; }
+  .pulse-dot { animation: pulse 2s infinite; }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.7); }
+    50% { box-shadow: 0 0 0 10px rgba(34,197,94,0); }
+  }
+  .stat-card { background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%); backdrop-filter: blur(10px); }
+  .blob {
+    position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.3; z-index: 0;
+  }
+  .testimonial-card { transition: all 0.4s ease; }
+  .testimonial-card:hover { transform: scale(1.03); }
+  .scroll-indicator { animation: bounce 2s infinite; }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+  }
+  .menu-btn { display: none; }
+  @media (max-width: 768px) {
+    .menu-btn { display: block; }
+    .nav-menu { 
+      position: fixed; top: 0; right: -100%; width: 70%; height: 100vh;
+      background: white; flex-direction: column; padding: 80px 30px 30px;
+      transition: right 0.3s ease; z-index: 40; box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+    }
+    .nav-menu.open { right: 0; }
+  }
+</style>
+</head>
+<body class="bg-white text-gray-800 overflow-x-hidden">
+
+<!-- Navigation -->
+<nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-sm z-50 transition-all" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <a href="#home" class="flex items-center gap-3">
+        <img src="https://image.qwenlm.ai/public_source/2e9689d0-2fab-4d40-a83a-476b265033f8/16343fac8-2c3d-4c89-aa72-338ade7fc1a8.png" alt="Logo" class="h-12 w-12" />
+        <div>
+          <h1 class="text-xl font-bold text-primary leading-tight">Sekarnesia</h1>
+          <p class="text-xs text-secondary font-semibold -mt-1">EDU</p>
+        </div>
+      </a>
+      <div class="nav-menu flex items-center gap-8" id="navMenu">
+        <a href="#home" class="nav-link text-gray-700 hover:text-primary font-medium">Beranda</a>
+        <a href="#tentang" class="nav-link text-gray-700 hover:text-primary font-medium">Tentang</a>
+        <a href="#program" class="nav-link text-gray-700 hover:text-primary font-medium">Program</a>
+        <a href="#keunggulan" class="nav-link text-gray-700 hover:text-primary font-medium">Keunggulan</a>
+        <a href="#testimoni" class="nav-link text-gray-700 hover:text-primary font-medium">Testimoni</a>
+        <a href="#kontak" class="nav-link text-gray-700 hover:text-primary font-medium">Kontak</a>
+        <a href="#daftar" class="gold-gradient text-primary px-6 py-2.5 rounded-full font-semibold hover:shadow-lg transition">Daftar Sekarang</a>
+      </div>
+      <button class="menu-btn text-primary" id="menuBtn">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="https://image.qwenlm.ai/public_source/2e9689d0-2fab-4d40-a83a-476b265033f8/14f545751-a2d9-439d-bba0-e7f98d5adeb6.png" class="w-full h-full object-cover" alt="Hero" />
+    <div class="hero-gradient absolute inset-0"></div>
+  </div>
+  <div class="blob bg-secondary w-96 h-96 -top-20 -right-20"></div>
+  <div class="blob bg-blue-400 w-80 h-80 bottom-0 left-0"></div>
+  
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-12 items-center">
+    <div class="text-white">
+      <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md px-4 py-2 rounded-full mb-6 border border-white/20">
+        <span class="pulse-dot w-2 h-2 bg-green-400 rounded-full"></span>
+        <span class="text-sm font-medium">Pendaftaran Tahun Ajaran 2026/2027 Dibuka!</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+        Wujudkan <span class="text-secondary">Impian</span> Bersama <span class="text-secondary">Sekarnesia Edu</span>
+      </h1>
+      <p class="text-lg md:text-xl text-gray-100 mb-8 leading-relaxed">
+        Bimbingan Belajar Terpercaya di Cilacap dengan metode pembelajaran modern, tutor berpengalaman, dan hasil yang terbukti. Raih prestasi terbaikmu bersama kami!
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#daftar" class="gold-gradient text-primary px-8 py-4 rounded-full font-bold hover:shadow-2xl transition transform hover:scale-105">
+          🎓 Daftar Sekarang
+        </a>
+        <a href="#program" class="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white px-8 py-4 rounded-full font-bold hover:bg-white/20 transition">
+          📚 Lihat Program
+        </a>
+      </div>
+      <div class="flex flex-wrap gap-8 mt-12 pt-8 border-t border-white/20">
+        <div>
+          <p class="text-3xl font-bold text-secondary">15+</p>
+          <p class="text-sm text-gray-200">Tahun Pengalaman</p>
+        </div>
+        <div>
+          <p class="text-3xl font-bold text-secondary">5000+</p>
+          <p class="text-sm text-gray-200">Alumni Sukses</p>
+        </div>
+        <div>
+          <p class="text-3xl font-bold text-secondary">95%</p>
+          <p class="text-sm text-gray-200">Tingkat Kelulusan</p>
+        </div>
+      </div>
+    </div>
+    <div class="hidden lg:block">
+      <div class="relative animate-float">
+        <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-6 border border-white/20">
+          <img src="https://image.qwenlm.ai/public_source/2e9689d0-2fab-4d40-a83a-476b265033f8/16343fac8-2c3d-4c89-aa72-338ade7fc1a8.png" alt="Logo" class="w-full max-w-sm mx-auto" />
+          <div class="text-center mt-4">
+            <p class="text-white font-bold text-xl">Sekarnesia Edu</p>
+            <p class="text-secondary text-sm">Cilacap • Since 2010</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white scroll-indicator">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="tentang" class="py-24 bg-gradient-to-b from-white to-blue-50 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 reveal">
+      <span class="inline-block bg-secondary/10 text-secondary px-4 py-1.5 rounded-full text-sm font-semibold mb-4">TENTANG KAMI</span>
+      <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Mengenal Lebih Dekat <span class="text-secondary">Sekarnesia Edu</span></h2>
+      <p class="text-gray-600 max-w-3xl mx-auto text-lg">Lembaga bimbingan belajar yang telah dipercaya oleh ribuan siswa dan orang tua di Cilacap</p>
+    </div>
+    
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="reveal">
+        <div class="relative">
+          <img src="https://image.qwenlm.ai/public_source/2e9689d0-2fab-4d40-a83a-476b265033f8/14f545751-a2d9-439d-bba0-e7f98d5adeb6.png" alt="Tentang" class="rounded-3xl shadow-2xl w-full" />
+          <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-6 hidden md:block">
+            <div class="flex items-center gap-3">
+              <div class="gold-gradient w-14 h-14 rounded-full flex items-center justify-center">
+                <span class="text-2xl">🏆</span>
+              </div>
+              <div>
+                <p class="font-bold text-primary text-lg">Terakreditasi A</p>
+                <p class="text-sm text-gray-600">Lembaga Pendidikan</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <h3 class="text-3xl font-bold text-primary mb-6">Bimbel Terbaik di <span class="text-secondary">Cilacap</span> Sejak 2010</h3>
+        <p class="text-gray-600 mb-6 leading-relaxed">
+          <strong>Sekarnesia Edu</strong> adalah lembaga bimbingan belajar yang berdiri di Cilacap, Jawa Tengah. Kami berkomitmen untuk membantu siswa dari tingkat SD, SMP, hingga SMA dalam meraih prestasi akademik terbaik.
+        </p>
+        <p class="text-gray-600 mb-8 leading-relaxed">
+          Dengan nama yang terinspirasi dari bunga Sekar (kembang) dan Indonesia, kami percaya setiap siswa adalah bunga yang indah dan berpotensi untuk berkembang. Melalui metode pembelajaran yang menyenangkan dan tutor berkualitas, kami siap mendampingi perjalanan akademik anak-anak Anda.
+        </p>
+        
+        <div class="grid grid-cols-2 gap-4">
+          <div class="flex items-start gap-3">
+            <div class="w-10 h-10 gold-gradient rounded-lg flex items-center justify-center flex-shrink-0">
+              <span class="text-primary font-bold">✓</span>
+            </div>
+            <div>
+              <p class="font-semibold text-primary">Tutor Profesional</p>
+              <p class="text-sm text-gray-600">Berpengalaman & bersertifikat</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-10 h-10 gold-gradient rounded-lg flex items-center justify-center flex-shrink-0">
+              <span class="text-primary font-bold">✓</span>
+            </div>
+            <div>
+              <p class="font-semibold text-primary">Metode Modern</p>
+              <p class="text-sm text-gray-600">Interaktif & menyenangkan</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-10 h-10 gold-gradient rounded-lg flex items-center justify-center flex-shrink-0">
+              <span class="text-primary font-bold">✓</span>
+            </div>
+            <div>
+              <p class="font-semibold text-primary">Kelas Kecil</p>
+              <p class="text-sm text-gray-600">Maksimal 12 siswa/kelas</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-10 h-10 gold-gradient rounded-lg flex items-center justify-center flex-shrink-0">
+              <span class="text-primary font-bold">✓</span>
+            </div>
+            <div>
+              <p class="font-semibold text-primary">Fasilitas Lengkap</p>
+              <p class="text-sm text-gray-600">AC, WiFi, perpustakaan</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Programs Section -->
+<section id="program" class="py-24 bg-white relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 reveal">
+      <span class="inline-block bg-secondary/10 text-secondary px-4 py-1.5 rounded-full text-sm font-semibold mb-4">PROGRAM UNGGULAN</span>
+      <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Pilih Program <span class="text-secondary">Terbaikmu</span></h2>
+      <p class="text-gray-600 max-w-3xl mx-auto text-lg">Berbagai program bimbingan belajar yang disesuaikan dengan kebutuhan setiap jenjang pendidikan</p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- SD -->
+      <div class="card-hover bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 reveal">
+        <div class="relative h-48 overflow-hidden">
+          <img src="https://image.qwenlm.ai/public_source/2e9689d0-2fab-4d40-a83a-476b265033f8/18f827226-1655-4591-9356-3cfe1d8a518a.png" alt="SD" class="w-full h-full object-cover" />
+          <div class="absolute top-4 right-4 bg-secondary text-primary px-3 py-1 rounded-full text-xs font-bold">SD</div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-primary mb-2">Bimbel SD</h3>
+          <p class="text-gray-600 text-sm mb-4">Membangun fondasi kuat untuk siswa kelas 1-6 SD dengan metode belajar menyenangkan.</p>
+          <ul class="space-y-2 text-sm text-gray-700 mb-4">
+            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Matematika & IPA</li>
+            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Bahasa Indonesia & Inggris</li>
+            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Persiapan Ujian Sekolah</li>
+          </ul>
+          <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+            <p class="text-primary font-bold">Rp 350K<span class="text-xs text-gray-500 font-normal">/bulan</span></p>
+            <a href="#daftar" class="text-secondary font-semibold text-sm hover:underline">Detail →</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- SMP -->
+      <div class="card-hover bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 reveal">
+        <div class="relative h-48 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+          <span class="text-7xl">📘</span>
+          <div class="absolute top-4 right-4 bg-secondary text-primary px-3 py-1 rounded-full text-xs font-bold">SMP</div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-primary mb-2">Bimbel SMP</h3>
+          <p class="text-gray-600 text-sm mb-4">Mempersiapkan siswa SMP menghadapi ujian nasional dan seleksi sekolah favorit.</p>
+          <ul class="space-y-2 text-sm text-gray-700 mb-4">
+            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Matematika, IPA, IPS</li>
+            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Bahasa Inggris Intensif</li>
+            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Tryout & Pembahasan</li>
+          </ul>
+          <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+            <p class="text-primary font-bold">Rp 450K<span class="text-xs text-gray-500 font-normal">/bulan</span></p>
+            <a href="#daftar" class="text-secondary font-semibold text-sm hover:underline">Detail →</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- SMA -->
+      <div class="card-hover bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 reveal">
+        <div class="relative h-48 bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center">
+          <span class="text-7xl">📗</span>
+          <div class="absolute top-4 right-4 bg-secondary text-primary px-3 py-1 rounded-full text-xs font-bold">SMA</div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-primary mb-2">Bimbel SMA</h3>
+          <p class="text-gray-600 text-sm mb-4">Pendalaman materi SMA untuk persiapan ujian sekolah dan masuk PTN favorit.</p>
+          <ul class="space-y-2 text-sm text-gray-700 mb-4">
+            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> IPA / IPS / Bahasa</li>
+            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Persiapan UTBK-SNBT</li>
+            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Mentoring Karir</li>
+          </ul>
+          <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+            <p class="text-primary font-bold">Rp 550K<span class="text-xs text-gray-500 font-normal">/bulan</span></p>
+            <a href="#daftar" class="text-secondary font-semibold text-sm hover:underline">Detail →</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- UTBK -->
+      <div class="card-hover bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 reveal">
+        <div class="relative h-48 overflow-hidden">
+          <img src="https://image.qwenlm.ai/public_source/2e9689d0-2fab-4d40-a83a-476b265033f8/156d73f60-6c7e-4502-8088-9914010e1530.png" alt="UTBK" class="w-full h-full object-cover" />
+          <div class="absolute top-4 right-4 bg-secondary text-primary px-3 py-1 rounded-full text-xs font-bold">UTBK</div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-primary mb-2">Persiapan UTBK</h3>
+          <p class="text-gray-600 text-sm mb-4">Program intensif untuk menaklukkan UTBK-SNBT dan meraih PTN impian.</p>
+          <ul class="space-y-2 text-sm text-gray-700 mb-4">
+            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> TPS & TKA Lengkap</li>
+            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> 50+ Tryout Nasional</li>
+            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Bedah Soal & Strategi</li>
+          </ul>
+          <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+            <p class="text-primary font-bold">Rp 750K<span class="text-xs text-gray-500 font-normal">/bulan</span></p>
+            <a href="#daftar" class="text-secondary font-semibold text-sm hover:underline">Detail →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-20 bg-primary relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-0 left-0 w-64 h-64 bg-secondary rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-secondary rounded-full translate-x-1/2 translate-y-1/2"></div>
+  </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="stat-card rounded-2xl p-6 text-center border border-white/10">
+        <p class="text-5xl font-bold text-secondary mb-2" id="stat1">0</p>
+        <p class="text-white/80">Tahun Pengalaman</p>
+      </div>
+      <div class="stat-card rounded-2xl p-6 text-center border border-white/10">
+        <p class="text-5xl font-bold text-secondary mb-2" id="stat2">0</p>
+        <p class="text-white/80">Alumni Sukses</p>
+      </div>
+      <div class="stat-card rounded-2xl p-6 text-center border border-white/10">
+        <p class="text-5xl font-bold text-secondary mb-2" id="stat3">0</p>
+        <p class="text-white/80">Tutor Profesional</p>
+      </div>
+      <div class="stat-card rounded-2xl p-6 text-center border border-white/10">
+        <p class="text-5xl font-bold text-secondary mb-2" id="stat4">0</p>
+        <p class="text-white/80">Cabang di Cilacap</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Keunggulan Section -->
+<section id="keunggulan" class="py-24 bg-gradient-to-b from-blue-50 to-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 reveal">
+      <span class="inline-block bg-secondary/10 text-secondary px-4 py-1.5 rounded-full text-sm font-semibold mb-4">MENGAPA MEMILIH KAMI</span>
+      <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Keunggulan <span class="text-secondary">Sekarnesia Edu</span></h2>
+      <p class="text-gray-600 max-w-3xl mx-auto text-lg">Alasan mengapa ribuan siswa dan orang tua mempercayakan pendidikan kepada kami</p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="card-hover bg-white rounded-2xl p-8 shadow-lg reveal">
+        <div class="w-16 h-16 gold-gradient rounded-2xl flex items-center justify-center mb-6">
+          <span class="text-3xl">👨‍🏫</span>
+        </div>
+        <h3 class="text-xl font-bold text-primary mb-3">Tutor Berpengalaman</h3>
+        <p class="text-gray-600">Pengajar lulusan PTN ternama dengan pengalaman mengajar minimal 5 tahun dan bersertifikat.</p>
+      </div>
+      
+      <div class="card-hover bg-white rounded-2xl p-8 shadow-lg reveal">
+        <div class="w-16 h-16 gold-gradient rounded-2xl flex items-center justify-center mb-6">
+          <span class="text-3xl">📖</span>
+        </div>
+        <h3 class="text-xl font-bold text-primary mb-3">Kurikulum Terkini</h3>
+        <p class="text-gray-600">Materi pembelajaran selalu update sesuai kurikulum terbaru dan kisi-kisi ujian nasional.</p>
+      </div>
+      
+      <div class="card-hover bg-white rounded-2xl p-8 shadow-lg reveal">
+        <div class="w-16 h-16 gold-gradient rounded-2xl flex items-center justify-center mb-6">
+          <span class="text-3xl">🎯</span>
+        </div>
+        <h3 class="text-xl font-bold text-primary mb-3">Kelas Kecil</h3>
+        <p class="text-gray-600">Maksimal 12 siswa per kelas untuk memastikan perhatian penuh dari tutor kepada setiap siswa.</p>
+      </div>
+      
+      <div class="card-hover bg-white rounded-2xl p-8 shadow-lg reveal">
+        <div class="w-16 h-16 gold-gradient rounded-2xl flex items-center justify-center mb-6">
+          <span class="text-3xl">💻</span>
+        </div>
+        <h3 class="text-xl font-bold text-primary mb-3">Fasilitas Modern</h3>
+        <p class="text-gray-600">Ruang kelas ber-AC, WiFi cepat, perpustakaan, dan laboratorium komputer yang lengkap.</p>
+      </div>
+      
+      <div class="card-hover bg-white rounded-2xl p-8 shadow-lg reveal">
+        <div class="w-16 h-16 gold-gradient rounded-2xl flex items-center justify-center mb-6">
+          <span class="text-3xl">📊</span>
+        </div>
+        <h3 class="text-xl font-bold text-primary mb-3">Laporan Berkala</h3>
+        <p class="text-gray-600">Orang tua mendapat laporan perkembangan belajar anak secara rutin setiap bulan.</p>
+      </div>
+      
+      <div class="card-hover bg-white rounded-2xl p-8 shadow-lg reveal">
+        <div class="w-16 h-16 gold-gradient rounded-2xl flex items-center justify-center mb-6">
+          <span class="text-3xl">💰</span>
+        </div>
+        <h3 class="text-xl font-bold text-primary mb-3">Harga Terjangkau</h3>
+        <p class="text-gray-600">Biaya pendidikan yang kompetitif dengan kualitas terbaik, tersedia program cicilan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimoni Section -->
+<section id="testimoni" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 reveal">
+      <span class="inline-block bg-secondary/10 text-secondary px-4 py-1.5 rounded-full text-sm font-semibold mb-4">TESTIMONI</span>
+      <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Apa Kata <span class="text-secondary">Mereka?</span></h2>
+      <p class="text-gray-600 max-w-3xl mx-auto text-lg">Cerita sukses dari siswa dan orang tua yang telah bergabung dengan kami</p>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="testimonial-card bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 shadow-lg border border-blue-100 reveal">
+        <div class="flex items-center gap-1 mb-4">
+          <span class="text-secondary text-xl">★</span>
+          <span class="text-secondary text-xl">★</span>
+          <span class="text-secondary text-xl">★</span>
+          <span class="text-secondary text-xl">★</span>
+          <span class="text-secondary text-xl">★</span>
+        </div>
+        <p class="text-gray-700 mb-6 italic">"Anak saya yang awalnya kesulitan matematika, sekarang jadi juara kelas! Terima kasih Sekarnesia Edu, tutornya sabar dan sangat membantu."</p>
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 gold-gradient rounded-full flex items-center justify-center text-primary font-bold">SR</div>
+          <div>
+            <p class="font-bold text-primary">Ibu Sri Rahayu</p>
+            <p class="text-sm text-gray-600">Orang Tua Siswa SD</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 shadow-lg border border-blue-100 reveal">
+        <div class="flex items-center gap-1 mb-4">
+          <span class="text-secondary text-xl">★</span>
+          <span class="text-secondary text-xl">★</span>
+          <span class="text-secondary text-xl">★</span>
+          <span class="text-secondary text-xl">★</span>
+          <span class="text-secondary text-xl">★</span>
+        </div>
+        <p class="text-gray-700 mb-6 italic">"Berkat bimbingan di Sekarnesia, saya berhasil lolos UTBK dan diterima di UGM! Programnya terstruktur dan tryoutnya sangat membantu."</p>
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 gold-gradient rounded-full flex items-center justify-center text-primary font-bold">AP</div>
+          <div>
+            <p class="font-bold text-primary">Andi Pratama</p>
+            <p class="text-sm text-gray-600">Alumni 2025 - UGM</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 shadow-lg border border-blue-100 reveal">
+        <div class="flex items-center gap-1 mb-4">
+          <span class="text-secondary text-xl">★</span>
+          <span class="text-secondary text-xl">★</span>
+          <span class="text-secondary text-xl">★</span>
+          <span class="text-secondary text-xl">★</span>
+          <span class="text-secondary text-xl">★</span>
+        </div>
+        <p class="text-gray-700 mb-6 italic">"Fasilitasnya lengkap, suasananya nyaman, dan yang penting anak saya betah belajar di sini. Recommended banget untuk bimbel di Cilacap!"</p>
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 gold-gradient rounded-full flex items-center justify-center text-primary font-bold">BW</div>
+          <div>
+            <p class="font-bold text-primary">Bapak Wijaya</p>
+            <p class="text-sm text-gray-600">Orang Tua Siswa SMP</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / Daftar Section -->
+<section id="daftar" class="py-24 bg-gradient-to-br from-primary to-blue-700 relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-10 right-10 w-72 h-72 bg-secondary rounded-full"></div>
+    <div class="absolute bottom-10 left-10 w-96 h-96 bg-secondary rounded-full"></div>
+  </div>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 reveal">
+      <div class="text-center mb-8">
+        <span class="inline-block bg-secondary/20 text-secondary px-4 py-1.5 rounded-full text-sm font-semibold mb-4">PENDAFTARAN</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-3">Daftar Sekarang Juga!</h2>
+        <p class="text-gray-600">Dapatkan diskon 20% untuk pendaftaran bulan ini. Kuota terbatas!</p>
+      </div>
+      
+      <form id="daftarForm" class="space-y-5">
+        <div class="grid md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Nama Lengkap Siswa</label>
+            <input type="text" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-secondary focus:outline-none transition" placeholder="Masukkan nama lengkap" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Asal Sekolah</label>
+            <input type="text" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-secondary focus:outline-none transition" placeholder="Nama sekolah" />
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Jenjang Pendidikan</label>
+            <select required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-secondary focus:outline-none transition">
+              <option value="">Pilih jenjang</option>
+              <option>SD (Kelas 1-6)</option>
+              <option>SMP (Kelas 7-9)</option>
+              <option>SMA (Kelas 10-12)</option>
+              <option>Persiapan UTBK</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">No. WhatsApp Orang Tua</label>
+            <input type="tel" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-secondary focus:outline-none transition" placeholder="08xxxxxxxxxx" />
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-2">Pesan (Opsional)</label>
+          <textarea rows="3" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-secondary focus:outline-none transition" placeholder="Tulis pertanyaan atau pesan..."></textarea>
+        </div>
+        <button type="submit" class="w-full gold-gradient text-primary font-bold py-4 rounded-xl hover:shadow-xl transition transform hover:scale-[1.02] text-lg">
+          🚀 Kirim Pendaftaran
+        </button>
+      </form>
+      
+      <div id="successMsg" class="hidden mt-6 bg-green-50 border-2 border-green-200 rounded-xl p-6 text-center">
+        <span class="text-4xl mb-2 block">✅</span>
+        <p class="text-green-800 font-bold text-lg">Pendaftaran Berhasil!</p>
+        <p class="text-green-700 text-sm mt-1">Tim kami akan menghubungi Anda dalam 1x24 jam.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Kontak Section -->
+<section id="kontak" class="py-24 bg-blue-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 reveal">
+      <span class="inline-block bg-secondary/10 text-secondary px-4 py-1.5 rounded-full text-sm font-semibold mb-4">HUBUNGI KAMI</span>
+      <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Kunjungi <span class="text-secondary">Kampus Kami</span></h2>
+      <p class="text-gray-600 max-w-3xl mx-auto text-lg">Kami siap menjawab pertanyaan Anda dan membantu proses pendaftaran</p>
+    </div>
+    
+    <div class="grid lg:grid-cols-2 gap-12">
+      <div class="space-y-6 reveal">
+        <div class="bg-white rounded-2xl p-6 shadow-lg flex items-start gap-5">
+          <div class="w-14 h-14 gold-gradient rounded-xl flex items-center justify-center flex-shrink-0">
+            <span class="text-2xl">📍</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-primary text-lg mb-1">Alamat</h3>
+            <p class="text-gray-600">Jl. Asem Gang Asem, Tritih Lor, Jeruk Legi, Cilacap, Jawa Tengah</p>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-6 shadow-lg flex items-start gap-5">
+          <div class="w-14 h-14 gold-gradient rounded-xl flex items-center justify-center flex-shrink-0">
+            <span class="text-2xl">📞</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-primary text-lg mb-1">Telepon / WhatsApp</h3>
+            <p class="text-gray-600">+62 851-1321-9202</p>
+            <p class="text-gray-500 text-sm mt-1">Chat langsung via WhatsApp untuk respon cepat</p>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-6 shadow-lg flex items-start gap-5">
+          <div class="w-14 h-14 gold-gradient rounded-xl flex items-center justify-center flex-shrink-0">
+            <span class="text-2xl">✉️</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-primary text-lg mb-1">Email</h3>
+            <p class="text-gray-600">sekarmaharanipw@gmail.com</p>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-6 shadow-lg flex items-start gap-5">
+          <div class="w-14 h-14 gold-gradient rounded-xl flex items-center justify-center flex-shrink-0">
+            <span class="text-2xl">🕐</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-primary text-lg mb-1">Jam Operasional</h3>
+            <p class="text-gray-600">Senin - Jumat: 08.00 - 20.00 WIB</p>
+            <p class="text-gray-600">Sabtu - Minggu: 08.00 - 17.00 WIB</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="reveal">
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden h-full min-h-[400px]">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.5!2d109.015!3d-7.735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sTritih%20Lor%2C%20Jeruk%20Legi%2C%20Cilacap!5e0!3m2!1sen!2sid!4v1234567890"
+            width="100%" 
+            height="100%" 
+            style="border:0; min-height: 400px;" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-primary text-white pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-4 gap-8 mb-12">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-4">
+          <img src="https://image.qwenlm.ai/public_source/2e9689d0-2fab-4d40-a83a-476b265033f8/16343fac8-2c3d-4c89-aa72-338ade7fc1a8.png" alt="Logo" class="h-14 w-14 bg-white rounded-full p-1" />
+          <div>
+            <h3 class="text-2xl font-bold">Sekarnesia <span class="text-secondary">Edu</span></h3>
+            <p class="text-sm text-white/70">Bimbel Terbaik di Cilacap</p>
+          </div>
+        </div>
+        <p class="text-white/70 mb-6 leading-relaxed">Lembaga bimbingan belajar terpercaya di Cilacap yang berkomitmen membantu siswa meraih prestasi akademik terbaik sejak 2010.</p>
+        <div class="flex gap-3">
+          <a href="#" class="w-10 h-10 bg-white/10 hover:bg-secondary hover:text-primary rounded-full flex items-center justify-center transition">
+            <span>📘</span>
+          </a>
+          <a href="#" class="w-10 h-10 bg-white/10 hover:bg-secondary hover:text-primary rounded-full flex items-center justify-center transition">
+            <span>📷</span>
+          </a>
+          <a href="#" class="w-10 h-10 bg-white/10 hover:bg-secondary hover:text-primary rounded-full flex items-center justify-center transition">
+            <span>🐦</span>
+          </a>
+          <a href="#" class="w-10 h-10 bg-white/10 hover:bg-secondary hover:text-primary rounded-full flex items-center justify-center transition">
+            <span>▶️</span>
+          </a>
+        </div>
+      </div>
+      
+      <div>
+        <h4 class="font-bold text-lg mb-4 text-secondary">Program</h4>
+        <ul class="space-y-2 text-white/70">
+          <li><a href="#program" class="hover:text-secondary transition">Bimbel SD</a></li>
+          <li><a href="#program" class="hover:text-secondary transition">Bimbel SMP</a></li>
+          <li><a href="#program" class="hover:text-secondary transition">Bimbel SMA</a></li>
+          <li><a href="#program" class="hover:text-secondary transition">Persiapan UTBK</a></li>
+          <li><a href="#program" class="hover:text-secondary transition">Private Class</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 class="font-bold text-lg mb-4 text-secondary">Kontak</h4>
+        <ul class="space-y-2 text-white/70 text-sm">
+          <li>📍 Jl. Asem Gang Asem, Tritih Lor, Jeruk Legi</li>
+          <li>📞 +62 851-1321-9202</li>
+          <li>✉️ sekarmaharanipw@gmail.com</li>
+          <li>🕐 Senin-Jumat: 08.00-20.00</li>
+          <li>🕐 Sabtu-Minggu: 08.00-17.00</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-white/60 text-sm">© 2026 Sekarnesia Edu. All rights reserved.</p>
+      <div class="flex gap-6 text-sm text-white/60">
+        <a href="#" class="hover:text-secondary transition">Syarat & Ketentuan</a>
+        <a href="#" class="hover:text-secondary transition">Kebijakan Privasi</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float Button -->
+<a href="https://wa.me/6285113219202" target="_blank" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center z-40 transition transform hover:scale-110">
+  <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const navMenu = document.getElementById('navMenu');
+  menuBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('open');
+  });
+  
+  // Close mobile menu on link click
+  document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('open');
+    });
+  });
+  
+  // Scroll reveal animation
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealOnScroll = () => {
+    revealElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        el.classList.add('active');
+      }
+    });
+  };
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
+  
+  // Counter animation
+  const animateCounter = (id, target, suffix = '') => {
+    const el = document.getElementById(id);
+    let current = 0;
+    const increment = target / 60;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      el.textContent = Math.floor(current) + suffix;
+    }, 25);
+  };
+  
+  let statsAnimated = false;
+  const animateStats = () => {
+    const statSection = document.getElementById('stat1');
+    const rect = statSection.getBoundingClientRect();
+    if (rect.top < window.innerHeight && !statsAnimated) {
+      statsAnimated = true;
+      animateCounter('stat1', 15, '+');
+      animateCounter('stat2', 5000, '+');
+      animateCounter('stat3', 50, '+');
+      animateCounter('stat4', 3, '');
+    }
+  };
+  window.addEventListener('scroll', animateStats);
+  
+  // Form submission
+  document.getElementById('daftarForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    document.getElementById('daftarForm').style.display = 'none';
+    document.getElementById('successMsg').classList.remove('hidden');
+    setTimeout(() => {
+      document.getElementById('daftarForm').style.display = 'block';
+      document.getElementById('daftarForm').reset();
+      document.getElementById('successMsg').classList.add('hidden');
+    }, 5000);
+  });
+  
+  // Navbar shadow on scroll
+  window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('shadow-md');
+    } else {
+      navbar.classList.remove('shadow-md');
+    }
+  });
+</script>
+
+</body>
+</html>
