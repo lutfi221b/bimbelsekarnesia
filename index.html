@@ -60,11 +60,6 @@
     width: 0; height: 2px; background: #d4a843; transition: width 0.3s;
   }
   .nav-link:hover::after { width: 100%; }
-  .pulse-dot { animation: pulse 2s infinite; }
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.7); }
-    50% { box-shadow: 0 0 0 10px rgba(34,197,94,0); }
-  }
   .stat-card { background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%); backdrop-filter: blur(10px); }
   .blob {
     position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.3; z-index: 0;
@@ -130,10 +125,6 @@
   
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-12 items-center">
     <div class="text-white">
-      <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md px-4 py-2 rounded-full mb-6 border border-white/20">
-        <span class="pulse-dot w-2 h-2 bg-green-400 rounded-full"></span>
-        <span class="text-sm font-medium">Pendaftaran Tahun Ajaran 2026/2027 Dibuka!</span>
-      </div>
       <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
         Wujudkan <span class="text-secondary">Impian</span> Bersama <span class="text-secondary">Sekarnesia Edu</span>
       </h1>
@@ -148,20 +139,6 @@
           📚 Lihat Program
         </a>
       </div>
-      <div class="flex flex-wrap gap-8 mt-12 pt-8 border-t border-white/20">
-        <div>
-          <p class="text-3xl font-bold text-secondary">15+</p>
-          <p class="text-sm text-gray-200">Tahun Pengalaman</p>
-        </div>
-        <div>
-          <p class="text-3xl font-bold text-secondary">5000+</p>
-          <p class="text-sm text-gray-200">Alumni Sukses</p>
-        </div>
-        <div>
-          <p class="text-3xl font-bold text-secondary">95%</p>
-          <p class="text-sm text-gray-200">Tingkat Kelulusan</p>
-        </div>
-      </div>
     </div>
     <div class="hidden lg:block">
       <div class="relative animate-float">
@@ -169,7 +146,7 @@
           <img src="https://image.qwenlm.ai/public_source/2e9689d0-2fab-4d40-a83a-476b265033f8/16343fac8-2c3d-4c89-aa72-338ade7fc1a8.png" alt="Logo" class="w-full max-w-sm mx-auto" />
           <div class="text-center mt-4">
             <p class="text-white font-bold text-xl">Sekarnesia Edu</p>
-            <p class="text-secondary text-sm">Cilacap • Since 2010</p>
+            <p class="text-secondary text-sm">Cilacap • Since 2023</p>
           </div>
         </div>
       </div>
@@ -189,7 +166,7 @@
     <div class="text-center mb-16 reveal">
       <span class="inline-block bg-secondary/10 text-secondary px-4 py-1.5 rounded-full text-sm font-semibold mb-4">TENTANG KAMI</span>
       <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Mengenal Lebih Dekat <span class="text-secondary">Sekarnesia Edu</span></h2>
-      <p class="text-gray-600 max-w-3xl mx-auto text-lg">Lembaga bimbingan belajar yang telah dipercaya oleh ribuan siswa dan orang tua di Cilacap</p>
+      <p class="text-gray-600 max-w-3xl mx-auto text-lg">Lembaga bimbingan belajar yang telah dipercaya oleh siswa dan orang tua di Cilacap</p>
     </div>
     
     <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -202,7 +179,7 @@
                 <span class="text-2xl">🏆</span>
               </div>
               <div>
-                <p class="font-bold text-primary text-lg">Terakreditasi A</p>
+                <p class="font-bold text-primary text-lg">Terpercaya</p>
                 <p class="text-sm text-gray-600">Lembaga Pendidikan</p>
               </div>
             </div>
@@ -210,7 +187,7 @@
         </div>
       </div>
       <div class="reveal">
-        <h3 class="text-3xl font-bold text-primary mb-6">Bimbel Terbaik di <span class="text-secondary">Cilacap</span> Sejak 2010</h3>
+        <h3 class="text-3xl font-bold text-primary mb-6">Bimbel Terbaik di <span class="text-secondary">Cilacap</span> Sejak 2023</h3>
         <p class="text-gray-600 mb-6 leading-relaxed">
           <strong>Sekarnesia Edu</strong> adalah lembaga bimbingan belajar yang berdiri di Cilacap, Jawa Tengah. Kami berkomitmen untuk membantu siswa dari tingkat SD, SMP, hingga SMA dalam meraih prestasi akademik terbaik.
         </p>
@@ -218,14 +195,14 @@
           Dengan nama yang terinspirasi dari bunga Sekar (kembang) dan Indonesia, kami percaya setiap siswa adalah bunga yang indah dan berpotensi untuk berkembang. Melalui metode pembelajaran yang menyenangkan dan tutor berkualitas, kami siap mendampingi perjalanan akademik anak-anak Anda.
         </p>
         
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div class="flex items-start gap-3">
             <div class="w-10 h-10 gold-gradient rounded-lg flex items-center justify-center flex-shrink-0">
               <span class="text-primary font-bold">✓</span>
             </div>
             <div>
               <p class="font-semibold text-primary">Tutor Profesional</p>
-              <p class="text-sm text-gray-600">Berpengalaman & bersertifikat</p>
+              <p class="text-sm text-gray-600">Berpengalaman & sabar</p>
             </div>
           </div>
           <div class="flex items-start gap-3">
@@ -242,17 +219,8 @@
               <span class="text-primary font-bold">✓</span>
             </div>
             <div>
-              <p class="font-semibold text-primary">Kelas Kecil</p>
-              <p class="text-sm text-gray-600">Maksimal 12 siswa/kelas</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <div class="w-10 h-10 gold-gradient rounded-lg flex items-center justify-center flex-shrink-0">
-              <span class="text-primary font-bold">✓</span>
-            </div>
-            <div>
-              <p class="font-semibold text-primary">Fasilitas Lengkap</p>
-              <p class="text-sm text-gray-600">AC, WiFi, perpustakaan</p>
+              <p class="font-semibold text-primary">Private 1 on 1</p>
+              <p class="text-sm text-gray-600">Fokus & personal</p>
             </div>
           </div>
         </div>
@@ -271,19 +239,61 @@
     </div>
     
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Calistung & Mengaji -->
+      <div class="card-hover bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 reveal">
+        <div class="relative h-48 bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center">
+          <span class="text-7xl">📖</span>
+          <div class="absolute top-4 right-4 bg-secondary text-primary px-3 py-1 rounded-full text-xs font-bold">PAUD-TK</div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-primary mb-2">Calistung & Mengaji</h3>
+          <p class="text-gray-600 text-sm mb-4">Program dasar membaca, menulis, berhitung, dan mengaji untuk anak usia dini.</p>
+          <ul class="space-y-2 text-sm text-gray-700 mb-4">
+            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Membaca & Menulis</li>
+            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Berhitung Dasar</li>
+            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Mengaji Iqro & Al-Quran</li>
+          </ul>
+          <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+            <p class="text-primary font-bold">Rp 150K<span class="text-xs text-gray-500 font-normal">/bulan</span></p>
+            <a href="#daftar" class="text-secondary font-semibold text-sm hover:underline">Detail →</a>
+          </div>
+        </div>
+      </div>
+      
       <!-- SD -->
       <div class="card-hover bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 reveal">
-        <div class="relative h-48 overflow-hidden">
-          <img src="https://image.qwenlm.ai/public_source/2e9689d0-2fab-4d40-a83a-476b265033f8/18f827226-1655-4591-9356-3cfe1d8a518a.png" alt="SD" class="w-full h-full object-cover" />
+        <div class="relative h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+          <span class="text-7xl">📘</span>
           <div class="absolute top-4 right-4 bg-secondary text-primary px-3 py-1 rounded-full text-xs font-bold">SD</div>
         </div>
         <div class="p-6">
           <h3 class="text-xl font-bold text-primary mb-2">Bimbel SD</h3>
-          <p class="text-gray-600 text-sm mb-4">Membangun fondasi kuat untuk siswa kelas 1-6 SD dengan metode belajar menyenangkan.</p>
+          <p class="text-gray-600 text-sm mb-4">Membangun fondasi kuat untuk siswa kelas 1-6 SD dengan 12x pertemuan/bulan.</p>
           <ul class="space-y-2 text-sm text-gray-700 mb-4">
-            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Matematika & IPA</li>
-            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Bahasa Indonesia & Inggris</li>
-            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Persiapan Ujian Sekolah</li>
+            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> 12x Pertemuan/bulan</li>
+            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Matematika, IPA, B.Indo</li>
+            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> PR & Ujian Sekolah</li>
+          </ul>
+          <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+            <p class="text-primary font-bold">Rp 250K<span class="text-xs text-gray-500 font-normal">/bulan</span></p>
+            <a href="#daftar" class="text-secondary font-semibold text-sm hover:underline">Detail →</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- SMP -->
+      <div class="card-hover bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 reveal">
+        <div class="relative h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+          <span class="text-7xl">📗</span>
+          <div class="absolute top-4 right-4 bg-secondary text-primary px-3 py-1 rounded-full text-xs font-bold">SMP</div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-primary mb-2">Bimbel SMP</h3>
+          <p class="text-gray-600 text-sm mb-4">Mempersiapkan siswa SMP menghadapi ujian dan seleksi sekolah favorit.</p>
+          <ul class="space-y-2 text-sm text-gray-700 mb-4">
+            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Matematika, IPA, IPS</li>
+            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Bahasa Inggris Intensif</li>
+            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Tryout & Pembahasan</li>
           </ul>
           <div class="flex justify-between items-center pt-4 border-t border-gray-100">
             <p class="text-primary font-bold">Rp 350K<span class="text-xs text-gray-500 font-normal">/bulan</span></p>
@@ -292,31 +302,10 @@
         </div>
       </div>
       
-      <!-- SMP -->
-      <div class="card-hover bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 reveal">
-        <div class="relative h-48 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
-          <span class="text-7xl">📘</span>
-          <div class="absolute top-4 right-4 bg-secondary text-primary px-3 py-1 rounded-full text-xs font-bold">SMP</div>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-primary mb-2">Bimbel SMP</h3>
-          <p class="text-gray-600 text-sm mb-4">Mempersiapkan siswa SMP menghadapi ujian nasional dan seleksi sekolah favorit.</p>
-          <ul class="space-y-2 text-sm text-gray-700 mb-4">
-            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Matematika, IPA, IPS</li>
-            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Bahasa Inggris Intensif</li>
-            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Tryout & Pembahasan</li>
-          </ul>
-          <div class="flex justify-between items-center pt-4 border-t border-gray-100">
-            <p class="text-primary font-bold">Rp 450K<span class="text-xs text-gray-500 font-normal">/bulan</span></p>
-            <a href="#daftar" class="text-secondary font-semibold text-sm hover:underline">Detail →</a>
-          </div>
-        </div>
-      </div>
-      
       <!-- SMA -->
       <div class="card-hover bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 reveal">
-        <div class="relative h-48 bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center">
-          <span class="text-7xl">📗</span>
+        <div class="relative h-48 bg-gradient-to-br from-rose-400 to-rose-600 flex items-center justify-center">
+          <span class="text-7xl">📙</span>
           <div class="absolute top-4 right-4 bg-secondary text-primary px-3 py-1 rounded-full text-xs font-bold">SMA</div>
         </div>
         <div class="p-6">
@@ -324,32 +313,11 @@
           <p class="text-gray-600 text-sm mb-4">Pendalaman materi SMA untuk persiapan ujian sekolah dan masuk PTN favorit.</p>
           <ul class="space-y-2 text-sm text-gray-700 mb-4">
             <li class="flex items-center gap-2"><span class="text-secondary">✓</span> IPA / IPS / Bahasa</li>
-            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Persiapan UTBK-SNBT</li>
+            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Persiapan Ujian Sekolah</li>
             <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Mentoring Karir</li>
           </ul>
           <div class="flex justify-between items-center pt-4 border-t border-gray-100">
-            <p class="text-primary font-bold">Rp 550K<span class="text-xs text-gray-500 font-normal">/bulan</span></p>
-            <a href="#daftar" class="text-secondary font-semibold text-sm hover:underline">Detail →</a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- UTBK -->
-      <div class="card-hover bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 reveal">
-        <div class="relative h-48 overflow-hidden">
-          <img src="https://image.qwenlm.ai/public_source/2e9689d0-2fab-4d40-a83a-476b265033f8/156d73f60-6c7e-4502-8088-9914010e1530.png" alt="UTBK" class="w-full h-full object-cover" />
-          <div class="absolute top-4 right-4 bg-secondary text-primary px-3 py-1 rounded-full text-xs font-bold">UTBK</div>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-primary mb-2">Persiapan UTBK</h3>
-          <p class="text-gray-600 text-sm mb-4">Program intensif untuk menaklukkan UTBK-SNBT dan meraih PTN impian.</p>
-          <ul class="space-y-2 text-sm text-gray-700 mb-4">
-            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> TPS & TKA Lengkap</li>
-            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> 50+ Tryout Nasional</li>
-            <li class="flex items-center gap-2"><span class="text-secondary">✓</span> Bedah Soal & Strategi</li>
-          </ul>
-          <div class="flex justify-between items-center pt-4 border-t border-gray-100">
-            <p class="text-primary font-bold">Rp 750K<span class="text-xs text-gray-500 font-normal">/bulan</span></p>
+            <p class="text-primary font-bold">Rp 450K<span class="text-xs text-gray-500 font-normal">/bulan</span></p>
             <a href="#daftar" class="text-secondary font-semibold text-sm hover:underline">Detail →</a>
           </div>
         </div>
@@ -364,24 +332,11 @@
     <div class="absolute top-0 left-0 w-64 h-64 bg-secondary rounded-full -translate-x-1/2 -translate-y-1/2"></div>
     <div class="absolute bottom-0 right-0 w-96 h-96 bg-secondary rounded-full translate-x-1/2 translate-y-1/2"></div>
   </div>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-      <div class="stat-card rounded-2xl p-6 text-center border border-white/10">
-        <p class="text-5xl font-bold text-secondary mb-2" id="stat1">0</p>
-        <p class="text-white/80">Tahun Pengalaman</p>
-      </div>
-      <div class="stat-card rounded-2xl p-6 text-center border border-white/10">
-        <p class="text-5xl font-bold text-secondary mb-2" id="stat2">0</p>
-        <p class="text-white/80">Alumni Sukses</p>
-      </div>
-      <div class="stat-card rounded-2xl p-6 text-center border border-white/10">
-        <p class="text-5xl font-bold text-secondary mb-2" id="stat3">0</p>
-        <p class="text-white/80">Tutor Profesional</p>
-      </div>
-      <div class="stat-card rounded-2xl p-6 text-center border border-white/10">
-        <p class="text-5xl font-bold text-secondary mb-2" id="stat4">0</p>
-        <p class="text-white/80">Cabang di Cilacap</p>
-      </div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="stat-card rounded-2xl p-10 text-center border border-white/10">
+      <p class="text-6xl font-bold text-secondary mb-3" id="stat1">0</p>
+      <p class="text-white/90 text-xl font-semibold">Tahun Pengalaman</p>
+      <p class="text-white/60 mt-2">Didukung tutor profesional & berpengalaman</p>
     </div>
   </div>
 </section>
@@ -392,40 +347,24 @@
     <div class="text-center mb-16 reveal">
       <span class="inline-block bg-secondary/10 text-secondary px-4 py-1.5 rounded-full text-sm font-semibold mb-4">MENGAPA MEMILIH KAMI</span>
       <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Keunggulan <span class="text-secondary">Sekarnesia Edu</span></h2>
-      <p class="text-gray-600 max-w-3xl mx-auto text-lg">Alasan mengapa ribuan siswa dan orang tua mempercayakan pendidikan kepada kami</p>
+      <p class="text-gray-600 max-w-3xl mx-auto text-lg">Alasan mengapa siswa dan orang tua mempercayakan pendidikan kepada kami</p>
     </div>
     
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
       <div class="card-hover bg-white rounded-2xl p-8 shadow-lg reveal">
         <div class="w-16 h-16 gold-gradient rounded-2xl flex items-center justify-center mb-6">
           <span class="text-3xl">👨‍🏫</span>
         </div>
         <h3 class="text-xl font-bold text-primary mb-3">Tutor Berpengalaman</h3>
-        <p class="text-gray-600">Pengajar lulusan PTN ternama dengan pengalaman mengajar minimal 5 tahun dan bersertifikat.</p>
+        <p class="text-gray-600">Pengajar profesional yang sabar, ramah, dan berpengalaman mengajar siswa dari berbagai jenjang pendidikan.</p>
       </div>
       
       <div class="card-hover bg-white rounded-2xl p-8 shadow-lg reveal">
         <div class="w-16 h-16 gold-gradient rounded-2xl flex items-center justify-center mb-6">
           <span class="text-3xl">📖</span>
         </div>
-        <h3 class="text-xl font-bold text-primary mb-3">Kurikulum Terkini</h3>
-        <p class="text-gray-600">Materi pembelajaran selalu update sesuai kurikulum terbaru dan kisi-kisi ujian nasional.</p>
-      </div>
-      
-      <div class="card-hover bg-white rounded-2xl p-8 shadow-lg reveal">
-        <div class="w-16 h-16 gold-gradient rounded-2xl flex items-center justify-center mb-6">
-          <span class="text-3xl">🎯</span>
-        </div>
-        <h3 class="text-xl font-bold text-primary mb-3">Kelas Kecil</h3>
-        <p class="text-gray-600">Maksimal 12 siswa per kelas untuk memastikan perhatian penuh dari tutor kepada setiap siswa.</p>
-      </div>
-      
-      <div class="card-hover bg-white rounded-2xl p-8 shadow-lg reveal">
-        <div class="w-16 h-16 gold-gradient rounded-2xl flex items-center justify-center mb-6">
-          <span class="text-3xl">💻</span>
-        </div>
-        <h3 class="text-xl font-bold text-primary mb-3">Fasilitas Modern</h3>
-        <p class="text-gray-600">Ruang kelas ber-AC, WiFi cepat, perpustakaan, dan laboratorium komputer yang lengkap.</p>
+        <h3 class="text-xl font-bold text-primary mb-3">Kurikulum Sesuai Sekolah</h3>
+        <p class="text-gray-600">Materi pembelajaran disesuaikan dengan kurikulum sekolah masing-masing siswa, sehingga lebih relevan dan efektif.</p>
       </div>
       
       <div class="card-hover bg-white rounded-2xl p-8 shadow-lg reveal">
@@ -433,7 +372,7 @@
           <span class="text-3xl">📊</span>
         </div>
         <h3 class="text-xl font-bold text-primary mb-3">Laporan Berkala</h3>
-        <p class="text-gray-600">Orang tua mendapat laporan perkembangan belajar anak secara rutin setiap bulan.</p>
+        <p class="text-gray-600">Orang tua mendapat laporan perkembangan belajar anak secara rutin, sehingga dapat memantau kemajuan secara langsung.</p>
       </div>
       
       <div class="card-hover bg-white rounded-2xl p-8 shadow-lg reveal">
@@ -441,7 +380,7 @@
           <span class="text-3xl">💰</span>
         </div>
         <h3 class="text-xl font-bold text-primary mb-3">Harga Terjangkau</h3>
-        <p class="text-gray-600">Biaya pendidikan yang kompetitif dengan kualitas terbaik, tersedia program cicilan.</p>
+        <p class="text-gray-600">Biaya pendidikan yang kompetitif dengan kualitas terbaik, cocok untuk semua kalangan masyarakat Cilacap.</p>
       </div>
     </div>
   </div>
@@ -453,7 +392,7 @@
     <div class="text-center mb-16 reveal">
       <span class="inline-block bg-secondary/10 text-secondary px-4 py-1.5 rounded-full text-sm font-semibold mb-4">TESTIMONI</span>
       <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Apa Kata <span class="text-secondary">Mereka?</span></h2>
-      <p class="text-gray-600 max-w-3xl mx-auto text-lg">Cerita sukses dari siswa dan orang tua yang telah bergabung dengan kami</p>
+      <p class="text-gray-600 max-w-3xl mx-auto text-lg">Cerita pengalaman seru dari siswa dan orang tua yang belajar bersama kami</p>
     </div>
     
     <div class="grid md:grid-cols-3 gap-8">
@@ -465,7 +404,25 @@
           <span class="text-secondary text-xl">★</span>
           <span class="text-secondary text-xl">★</span>
         </div>
-        <p class="text-gray-700 mb-6 italic">"Anak saya yang awalnya kesulitan matematika, sekarang jadi juara kelas! Terima kasih Sekarnesia Edu, tutornya sabar dan sangat membantu."</p>
+        <p class="text-gray-700 mb-6 italic">"Belajar di Sekarnesia tuh seru banget! Suasananya menyenangkan dan tidak terlalu tegang, jadi saya betah. Tutornya juga sabar kalau saya belum paham."</p>
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 gold-gradient rounded-full flex items-center justify-center text-primary font-bold">DA</div>
+          <div>
+            <p class="font-bold text-primary">Dina Amelia</p>
+            <p class="text-sm text-gray-600">Siswa SMP</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 shadow-lg border border-blue-100 reveal">
+        <div class="flex items-center gap-1 mb-4">
+          <span class="text-secondary text-xl">★</span>
+          <span class="text-secondary text-xl">★</span>
+          <span class="text-secondary text-xl">★</span>
+          <span class="text-secondary text-xl">★</span>
+          <span class="text-secondary text-xl">★</span>
+        </div>
+        <p class="text-gray-700 mb-6 italic">"Awalnya anak saya malas belajar, tapi sejak ikut bimbel di sini jadi semangat. Metode ngajarnya santai tapi tetap efektif, anak saya ketawa-ketawa pas belajar."</p>
         <div class="flex items-center gap-4">
           <div class="w-12 h-12 gold-gradient rounded-full flex items-center justify-center text-primary font-bold">SR</div>
           <div>
@@ -483,30 +440,12 @@
           <span class="text-secondary text-xl">★</span>
           <span class="text-secondary text-xl">★</span>
         </div>
-        <p class="text-gray-700 mb-6 italic">"Berkat bimbingan di Sekarnesia, saya berhasil lolos UTBK dan diterima di UGM! Programnya terstruktur dan tryoutnya sangat membantu."</p>
+        <p class="text-gray-700 mb-6 italic">"Belajar di Sekarnesia tuh kayak ngobrol sama teman sendiri, nggak kaku. Tutor-nya asik dan cara ngajarnya bikin materi susah jadi gampang dipahami."</p>
         <div class="flex items-center gap-4">
-          <div class="w-12 h-12 gold-gradient rounded-full flex items-center justify-center text-primary font-bold">AP</div>
+          <div class="w-12 h-12 gold-gradient rounded-full flex items-center justify-center text-primary font-bold">RF</div>
           <div>
-            <p class="font-bold text-primary">Andi Pratama</p>
-            <p class="text-sm text-gray-600">Alumni 2025 - UGM</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="testimonial-card bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 shadow-lg border border-blue-100 reveal">
-        <div class="flex items-center gap-1 mb-4">
-          <span class="text-secondary text-xl">★</span>
-          <span class="text-secondary text-xl">★</span>
-          <span class="text-secondary text-xl">★</span>
-          <span class="text-secondary text-xl">★</span>
-          <span class="text-secondary text-xl">★</span>
-        </div>
-        <p class="text-gray-700 mb-6 italic">"Fasilitasnya lengkap, suasananya nyaman, dan yang penting anak saya betah belajar di sini. Recommended banget untuk bimbel di Cilacap!"</p>
-        <div class="flex items-center gap-4">
-          <div class="w-12 h-12 gold-gradient rounded-full flex items-center justify-center text-primary font-bold">BW</div>
-          <div>
-            <p class="font-bold text-primary">Bapak Wijaya</p>
-            <p class="text-sm text-gray-600">Orang Tua Siswa SMP</p>
+            <p class="font-bold text-primary">Rizky Fauzan</p>
+            <p class="text-sm text-gray-600">Siswa SMA</p>
           </div>
         </div>
       </div>
@@ -544,10 +483,10 @@
             <label class="block text-sm font-semibold text-gray-700 mb-2">Jenjang Pendidikan</label>
             <select required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-secondary focus:outline-none transition">
               <option value="">Pilih jenjang</option>
+              <option>Calistung & Mengaji (PAUD-TK)</option>
               <option>SD (Kelas 1-6)</option>
               <option>SMP (Kelas 7-9)</option>
               <option>SMA (Kelas 10-12)</option>
-              <option>Persiapan UTBK</option>
             </select>
           </div>
           <div>
@@ -655,7 +594,7 @@
             <p class="text-sm text-white/70">Bimbel Terbaik di Cilacap</p>
           </div>
         </div>
-        <p class="text-white/70 mb-6 leading-relaxed">Lembaga bimbingan belajar terpercaya di Cilacap yang berkomitmen membantu siswa meraih prestasi akademik terbaik sejak 2010.</p>
+        <p class="text-white/70 mb-6 leading-relaxed">Lembaga bimbingan belajar terpercaya di Cilacap yang berkomitmen membantu siswa meraih prestasi akademik terbaik sejak 2023.</p>
         <div class="flex gap-3">
           <a href="#" class="w-10 h-10 bg-white/10 hover:bg-secondary hover:text-primary rounded-full flex items-center justify-center transition">
             <span>📘</span>
@@ -675,10 +614,10 @@
       <div>
         <h4 class="font-bold text-lg mb-4 text-secondary">Program</h4>
         <ul class="space-y-2 text-white/70">
+          <li><a href="#program" class="hover:text-secondary transition">Calistung & Mengaji</a></li>
           <li><a href="#program" class="hover:text-secondary transition">Bimbel SD</a></li>
           <li><a href="#program" class="hover:text-secondary transition">Bimbel SMP</a></li>
           <li><a href="#program" class="hover:text-secondary transition">Bimbel SMA</a></li>
-          <li><a href="#program" class="hover:text-secondary transition">Persiapan UTBK</a></li>
           <li><a href="#program" class="hover:text-secondary transition">Private Class</a></li>
         </ul>
       </div>
@@ -720,7 +659,6 @@
     navMenu.classList.toggle('open');
   });
   
-  // Close mobile menu on link click
   document.querySelectorAll('.nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
       navMenu.classList.remove('open');
@@ -744,7 +682,7 @@
   const animateCounter = (id, target, suffix = '') => {
     const el = document.getElementById(id);
     let current = 0;
-    const increment = target / 60;
+    const increment = target / 40;
     const timer = setInterval(() => {
       current += increment;
       if (current >= target) {
@@ -752,7 +690,7 @@
         clearInterval(timer);
       }
       el.textContent = Math.floor(current) + suffix;
-    }, 25);
+    }, 30);
   };
   
   let statsAnimated = false;
@@ -761,10 +699,7 @@
     const rect = statSection.getBoundingClientRect();
     if (rect.top < window.innerHeight && !statsAnimated) {
       statsAnimated = true;
-      animateCounter('stat1', 15, '+');
-      animateCounter('stat2', 5000, '+');
-      animateCounter('stat3', 50, '+');
-      animateCounter('stat4', 3, '');
+      animateCounter('stat1', 3, '+');
     }
   };
   window.addEventListener('scroll', animateStats);
